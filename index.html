@@ -6,7 +6,6 @@
 <title>forbid0den</title>
 
 <style>
-
 html, body{
   margin:0;
   height:100%;
@@ -17,41 +16,47 @@ body{
   display:flex;
   align-items:center;
   justify-content:center;
+  overflow:hidden;
 }
-
-/* SVG */
 
 .logo{
   width:70vw;
   max-width:900px;
   height:auto;
   display:block;
+  transform-origin:center center;
 }
 
 /* tablet */
-
 @media (max-width:900px){
-  .logo{ width:85vw; }
+  .logo{
+    width:90vw;
+  }
 }
 
-/* smartphone */
-
-@media (max-width:600px){
-  .logo{ width:95vw; }
+/* smartphone portrait */
+@media (max-width:600px) and (orientation: portrait){
+  .logo{
+    width:105vw;
+    transform:scale(1.08);
+  }
 }
 
-/* small smartphone */
-
-@media (max-width:400px){
-  .logo{ width:120vw; }
+/* iPhone 13 Pro portrait など */
+@media (max-width:400px) and (orientation: portrait){
+  .logo{
+    width:112vw;
+    transform:scale(1.12);
+  }
 }
 
 /* landscape phone */
-
-@media (orientation: landscape){
-  .logo{ width:65vw; }
+@media (orientation: landscape) and (max-height:500px){
+  .logo{
+    width:65vw;
+    transform:none;
+  }
 }
-
 </style>
 </head>
 
