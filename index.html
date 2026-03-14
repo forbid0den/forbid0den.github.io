@@ -325,45 +325,33 @@ z"/>
 
 <div class="counter">
   <span id="count">Loading...</span>
+  <pre id="debug" style="white-space:pre-wrap;font-size:12px;"></pre>
 </div>
 
-<script async src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const el = document.getElementById("count");
+  const countEl = document.getElementById("count");
+  const debugEl = document.getElementById("debug");
 
-  function showError(message) {
-    console.error(message);
-    el.textContent = "ERROR";
-  }
+  const counter = new Counter({
+    workspace: "0den-neocities",
+    debug: true,
+    timeout: 8000
+  });
 
-  function startCounter() {
-    if (typeof Counter === "undefined") {
-      showError("Counter library not loaded");
-      return;
-    }
-
-    const counter = new Counter({
-      workspace: "0den-neocities",
-      debug: true,
-      timeout: 8000
+  counter.up("visits")
+    .then(result => {
+      countEl.textContent = String(result.value).padStart(6, "0");
+    })
+    .catch(error => {
+      console.error(error);
+      countEl.textContent = "ERROR";
+      debugEl.textContent =
+        "message: " + (error?.message || "(none)") + "\n" +
+        "status: " + (error?.status || "(none)") + "\n" +
+        "code: " + (error?.code || "(none)");
     });
-
-    counter.up("visits")
-      .then(result => {
-        el.textContent = String(result.value).padStart(6, "0");
-      })
-      .catch(error => {
-        console.error("Counter error:", error);
-        el.textContent = "ERROR";
-      });
-  }
-
-  if (document.readyState === "complete") {
-    startCounter();
-  } else {
-    setTimeout(startCounter, 300);
-  }
 });
 </script>
 
