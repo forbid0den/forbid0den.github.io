@@ -327,28 +327,44 @@ z"/>
   <span id="count">Loading...</span>
 </div>
 
-<script type="module">
-import { Counter } from "https://cdn.jsdelivr.net/npm/counterapi/dist/counter.esm.min.js";
+<script async src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const el = document.getElementById("count");
 
-const countEl = document.getElementById("count");
+  function showError(message) {
+    console.error(message);
+    el.textContent = "ERROR";
+  }
 
-async function runCounter() {
-  try {
+  function startCounter() {
+    if (typeof Counter === "undefined") {
+      showError("Counter library not loaded");
+      return;
+    }
+
     const counter = new Counter({
-      workspace: "0den-neocities"
+      workspace: "0den-neocities",
+      debug: true,
+      timeout: 8000
     });
 
-    const result = await counter.up("visits");
-
-    countEl.textContent = String(result.value).padStart(6,"0");
-
-  } catch(e) {
-    console.error(e);
-    countEl.textContent = "ERROR";
+    counter.up("visits")
+      .then(result => {
+        el.textContent = String(result.value).padStart(6, "0");
+      })
+      .catch(error => {
+        console.error("Counter error:", error);
+        el.textContent = "ERROR";
+      });
   }
-}
 
-runCounter();
+  if (document.readyState === "complete") {
+    startCounter();
+  } else {
+    setTimeout(startCounter, 300);
+  }
+});
 </script>
 
 </body>
