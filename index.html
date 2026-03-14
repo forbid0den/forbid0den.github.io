@@ -341,10 +341,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   counter.up("visits")
     .then(result => {
-      el.textContent = String(result.value).padStart(6, "0");
+      console.log("counter result:", result);
+
+      const value = result?.value ?? result?.count;
+
+      if (value === undefined || value === null) {
+        el.textContent = "ERROR";
+        return;
+      }
+
+      el.textContent = String(value).padStart(6, "0");
     })
     .catch(err => {
-      console.error(err);
+      console.error("Counter error:", err);
       el.textContent = "ERROR";
     });
 });
