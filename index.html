@@ -324,31 +324,31 @@ z"/>
 </a>
 
 <div class="counter">
-  <span id="count">forbid0den</span>
+  <span id="count">Loading...</span>
 </div>
 
 <script type="module">
-
 import { Counter } from "https://cdn.jsdelivr.net/npm/counterapi/dist/counter.esm.min.js";
 
 const countEl = document.getElementById("count");
 
-try{
+async function runCounter() {
+  try {
+    const counter = new Counter({
+      workspace: "0den-neocities"
+    });
 
-  const counter = new Counter({
-    workspace:"0den-neocities"
-  });
+    const result = await counter.up("visits");
 
-  const result = await counter.up("visits");
+    countEl.textContent = String(result.value).padStart(6,"0");
 
-  countEl.textContent = String(result.value).padStart(6,"0");
-
-}catch(e){
-
-  countEl.textContent="forbid0den";
-
+  } catch(e) {
+    console.error(e);
+    countEl.textContent = "ERROR";
+  }
 }
 
+runCounter();
 </script>
 
 </body>
