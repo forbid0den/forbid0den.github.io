@@ -75,6 +75,20 @@ body{
 .logo-link{
   text-decoration:none;
 }
+
+/* counter */
+
+.counter{
+  position:fixed;
+  bottom:120px;
+  left:50%;
+  transform:translateX(-50%);
+  text-align:center;
+  font-family:"Apple Garamond","Garamond","Times New Roman",serif;
+  font-size:16px;
+  letter-spacing:.08em;
+}
+
 </style>
 </head>
 
@@ -302,6 +316,34 @@ z"/>
 </svg>
 
 </a>
+
+<div class="counter">
+  <span id="count">forbid0den</span>
+</div>
+
+<script type="module">
+
+import { Counter } from "https://cdn.jsdelivr.net/npm/counterapi/dist/counter.esm.min.js";
+
+const countEl = document.getElementById("count");
+
+try{
+
+  const counter = new Counter({
+    workspace:"0den-neocities"
+  });
+
+  const result = await counter.up("visits");
+
+  countEl.textContent = String(result.value).padStart(6,"0");
+
+}catch(e){
+
+  countEl.textContent="forbid0den";
+
+}
+
+</script>
 
 </body>
 </html>
