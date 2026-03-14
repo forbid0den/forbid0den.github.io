@@ -325,32 +325,27 @@ z"/>
 
 <div class="counter">
   <span id="count">Loading...</span>
-  <pre id="debug" style="white-space:pre-wrap;font-size:12px;"></pre>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const countEl = document.getElementById("count");
-  const debugEl = document.getElementById("debug");
+  const el = document.getElementById("count");
 
   const counter = new Counter({
-    workspace: "0den-neocities",
-    debug: true,
-    timeout: 8000
+    version: "v1",
+    namespace: "0den-neocities",
+    timeout: 8000,
+    debug: true
   });
 
   counter.up("visits")
     .then(result => {
-      countEl.textContent = String(result.value).padStart(6, "0");
+      el.textContent = String(result.value).padStart(6, "0");
     })
-    .catch(error => {
-      console.error(error);
-      countEl.textContent = "ERROR";
-      debugEl.textContent =
-        "message: " + (error?.message || "(none)") + "\n" +
-        "status: " + (error?.status || "(none)") + "\n" +
-        "code: " + (error?.code || "(none)");
+    .catch(err => {
+      console.error(err);
+      el.textContent = "ERROR";
     });
 });
 </script>
