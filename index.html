@@ -73,20 +73,26 @@ a{
   }
 }
 
-/* landscape phone */
-@media (orientation:landscape) and (max-height:500px){
-  .logo{
-    width:65vw;
-    max-width:none;
-  }
+/* landscape phone */ 
+@media (orientation: landscape) and (max-height:500px){ .logo{ width:65vw; transform:none; } }
 
-  .logo:hover{
-    transform:none;
-  }
+.logo{
+  cursor:pointer;
+  transition:transform 0.15s ease;
+}
 
-  .logo-link.is-pressed .logo{
-    transform:scale(.96);
-  }
+.logo:hover{
+  transform:scale(1.03);
+}
+
+.logo:active{
+  transform:scale(.97);
+}
+
+.logo-link{
+  text-decoration:none;
+  -webkit-tap-highlight-color:transparent;
+}
 }
 
 .counter{
