@@ -59,24 +59,12 @@ body{
   transition:transform 0.15s ease;
 }
 
-.logo path{
-  pointer-events:visiblePainted;
-}
-
-.logo-link.is-pressed .logo path{
-  filter:brightness(1.2) saturate(1.1);
-}
-
-.logo-link.is-pressed .logo{
-  transform:scale(.99);
-}
-
 .logo:hover{
   transform:scale(1.03);
 }
 
-.logo-link:active .logo{
-  transform:scale(.99);
+.logo:active{
+  transform:scale(.97);
 }
 
 .logo-link{
@@ -123,7 +111,7 @@ body{
 
 <body>
 
-<a href="#" class="logo-link" id="logoLink">
+<a href="https://0den.neocities.org/" class="logo-link">
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
@@ -205,20 +193,6 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Counter error:", err);
       el.textContent = "Error";
     });
-});
-</script>
-
-<script>
-const link = document.getElementById("logoLink");
-
-link.addEventListener("click", function(e){
-  e.preventDefault();
-
-  link.classList.add("is-pressed");
-
-  setTimeout(function(){
-    window.location.href = "https://0den.neocities.org/forbid0den";
-  }, 180);
 });
 </script>
 
