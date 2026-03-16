@@ -119,7 +119,7 @@ body{
 
 <body>
 
-<a href="https://0den.neocities.org/forbid0den" class="logo-link">
+<a href="https://0den.neocities.org/forbid0den" class="logo-link" id="logoLink">
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
@@ -201,6 +201,18 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Counter error:", err);
       el.textContent = "Error";
     });
+});
+</script>
+
+<script>
+const link = document.getElementById("logoLink");
+
+link.addEventListener("click", function(e){
+  e.preventDefault(); // すぐ移動しない
+
+  setTimeout(function(){
+    window.location.href = "https://0den.neocities.org/forbid0den";
+  }, 180); // ←待ち時間(ms)
 });
 </script>
 
