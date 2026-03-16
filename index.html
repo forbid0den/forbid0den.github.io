@@ -26,6 +26,7 @@ body{
   height:auto;
   display:block;
   transform-origin:center center;
+  pointer-events:none;
 }
 
 /* tablet */
@@ -57,6 +58,14 @@ body{
 .logo{
   cursor:pointer;
   transition:transform 0.15s ease;
+}
+
+.logo path{
+  pointer-events:visiblePainted;
+}
+
+.logo path:active{
+  filter:brightness(.75);
 }
 
 .logo:hover{
