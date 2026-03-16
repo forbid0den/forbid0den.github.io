@@ -63,11 +63,11 @@ body{
   pointer-events:visiblePainted;
 }
 
-.logo-link:active .logo path{
+.logo-link.is-pressed .logo path{
   filter:brightness(.75);
 }
 
-.logo-link:active .logo{
+.logo-link.is-pressed .logo{
   transform:scale(.99);
 }
 
@@ -212,11 +212,13 @@ document.addEventListener("DOMContentLoaded", function () {
 const link = document.getElementById("logoLink");
 
 link.addEventListener("click", function(e){
-  e.preventDefault(); // すぐ移動しない
+  e.preventDefault();
+
+  link.classList.add("is-pressed");
 
   setTimeout(function(){
     window.location.href = "https://0den.neocities.org/forbid0den";
-  }, 180); // ←待ち時間(ms)
+  }, 180);
 });
 </script>
 
