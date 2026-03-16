@@ -52,19 +52,26 @@ body{
 }
 
 /* landscape phone */ 
-@media (orientation: landscape) and (max-height:500px){ .logo{ width:65vw; transform:none; } }
+@media (orientation: landscape) and (max-height:500px){
+  .logo{
+    width:65vw;
+    transform:none;
+  }
+}
 
 .logo{
   cursor:pointer;
-  transition:transform 0.15s ease;
+  transition:transform 0.08s ease;
 }
 
+/* hoverは動かさない（PCでも自然） */
 .logo:hover{
-  transform:scale(1.03);
+  transform:none;
 }
 
+/* タップ時だけほんの少し沈む */
 .logo:active{
-  transform:scale(.97);
+  transform:scale(.995);
 }
 
 .logo-link{
@@ -97,13 +104,13 @@ body{
   }
 }
 
-.counter {
-  font-family: "Apple Garamond","Garamond","Times New Roman",serif;
-  text-align: center;
+.counter{
+  font-family:"Apple Garamond","Garamond","Times New Roman",serif;
+  text-align:center;
 }
 
-.title {
-  margin-bottom: 4px;     /* カウンターとの間隔 */
+.title{
+  margin-bottom:4px;
 }
 
 </style>
@@ -161,7 +168,7 @@ body{
 
 <div class="counter">
   <span id="count">Loading...</span>
-	<div class="title">forbid0den</div>
+  <div class="title">forbid0den</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
@@ -196,5 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+</body>
+</html>
 </body>
 </html>
