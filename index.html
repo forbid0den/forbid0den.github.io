@@ -3,11 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>forbid0den</title>
 
 <style>
-
 html, body{
   margin:0;
   height:100%;
@@ -21,14 +19,23 @@ body{
   overflow:hidden;
 }
 
+.logo-link{
+  text-decoration:none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.logo-wrap{
+  transform-origin:center center;
+}
+
+/* 基本サイズ */
 .logo{
   width:70vw;
   max-width:900px;
   height:auto;
   display:block;
-  transform-origin:center center;
   cursor:pointer;
-
+  transform-origin:center center;
   transition:
     opacity .12s ease,
     transform .08s ease;
@@ -45,6 +52,8 @@ body{
 @media (max-width:600px) and (orientation: portrait){
   .logo{
     width:105vw;
+  }
+  .logo-wrap{
     transform:scale(1.08);
   }
 }
@@ -53,14 +62,18 @@ body{
 @media (max-width:400px) and (orientation: portrait){
   .logo{
     width:112vw;
+  }
+  .logo-wrap{
     transform:scale(1.12);
   }
 }
 
-/* landscape phone */ 
+/* landscape phone */
 @media (orientation: landscape) and (max-height:500px){
   .logo{
     width:65vw;
+  }
+  .logo-wrap{
     transform:none;
   }
 }
@@ -84,18 +97,12 @@ body{
 
 @keyframes logoBounce{
   0%   { transform:translateY(3px) scale(.92); opacity:.55; }
-  45%  { transform:translateY(0px) scale(1.02); opacity:.9; }
+  45%  { transform:translateY(0) scale(1.02); opacity:.9; }
   75%  { transform:scale(.995); }
   100% { transform:scale(1); opacity:1; }
 }
 
-.logo-link{
-  text-decoration:none;
-  -webkit-tap-highlight-color:transparent;
-}
-
 /* counter */
-
 .counter{
   position:fixed;
   bottom:120px;
@@ -119,27 +126,21 @@ body{
   }
 }
 
-.counter{
-  font-family:"Apple Garamond","Garamond","Times New Roman",serif;
-  text-align:center;
-}
-
 .title{
   margin-bottom:4px;
 }
-
 </style>
 </head>
 
 <body>
 
 <a href="https://0den.neocities.org/forbid0den" class="logo-link">
-
-<svg
-xmlns="http://www.w3.org/2000/svg"
-aria-label="forbid0den logo"
-class="logo"
-viewBox="0 0 736 736">
+  <div class="logo-wrap">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="forbid0den logo"
+      class="logo"
+      viewBox="0 0 736 736">
   <path
     fill="#4987b1"
     d="M557.115 180.876c-10.512 3.808-20.462 3.364-29.724-2.143-3.516-2.091-6.21-5.565-9.28-8.408l.929-2.037c2.093.175 4.3-.018 6.261.584 12.094 3.71 23.01-.117 33.69-5.173 1.131-.536 1.994-2.465 2.249-3.88.853-4.745 1.321-9.557 2.04-14.329.583-3.872 2.637-5.188 6.342-3.387 7.426 3.612 14.953 7.032 22.248 10.89 2.175 1.152 3.718 3.5 5.55 5.3-1.665 1.47-3.119 3.353-5.035 4.333a275 275 0 0 1-17.617 8.22c-2.552 1.085-3.383 2.432-3.31 5.246.682 26.467.656 52.915-3.241 79.2-.214 1.444-.028 2.946-.028 4.976 1.61-.755 2.884-1.417 4.205-1.96 5.23-2.147 10.345-4.7 15.74-6.294 14.23-4.202 26.973 3.195 28.606 17.896 1.137 10.246.355 20.944-1.181 31.198-3.471 23.16-14.346 43.173-29.408 60.77-4.477 5.231-10.88 8.814-16.4 13.152l-1.166-1.315c.302-.488.498-1.106.92-1.446 12.21-9.86 19.888-23.077 24.957-37.379 4.018-11.335 5.501-23.579 7.99-35.444 2.236-10.651 3.757-21.347.606-32.114-.514-1.755-.96-3.533-1.57-5.254-1.438-4.063-4.56-5.844-8.21-3.715-8.453 4.933-16.644 10.335-24.737 15.847-1.124.765-1.24 3.196-1.577 4.904-2.95 14.988-5.513 30.062-8.902 44.95-1.522 6.682-5.905 11.793-12.728 14.414-7.537 2.896-13.147-.154-13.635-8.326-.294-4.917.259-10.015 1.266-14.858 3.267-15.71 9.416-30.135 20.039-42.44.976-1.132 1.504-2.944 1.616-4.485 2.012-27.715 3.975-55.434 5.727-83.166.092-1.451 2.247-5.71-3.232-4.327m-12.328 131.388c-2.123 7.626-5.377 15.025-5.638 24.243 5.312-2.465 8.49-5.548 9.365-9.777 2.287-11.058 3.947-22.245 5.857-33.381l-1.955-.556c-2.465 6.238-4.93 12.475-7.629 19.47m31.185-153.85 9.248-3.395c-5.264-5.602-11.087-8.102-13.509-5.738-3.256 3.18-1.591 6.87-.698 10.651 1.728-.493 2.988-.852 4.96-1.517"
@@ -177,87 +178,77 @@ viewBox="0 0 736 736">
     d="M575.617 158.566c-1.616.513-2.876.872-4.604 1.365-.893-3.78-2.558-7.472.698-10.65 2.422-2.365 8.245.135 13.509 5.737-3.24 1.19-6.244 2.293-9.603 3.548"
   />
 </svg>
-
+  </div>
 </a>
 
 <div class="counter">
-<span id="count">Loading...</span>
-<div class="title">forbid0den</div>
+  <span id="count">Loading...</span>
+  <div class="title">forbid0den</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
-
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const logo = document.querySelector(".logo");
+  const link = document.querySelector(".logo-link");
+  const el = document.getElementById("count");
 
-document.addEventListener("DOMContentLoaded",function(){
+  let navigating = false;
 
-const logo=document.querySelector(".logo")
-const link=document.querySelector(".logo-link")
+  function clearPressed() {
+    logo.classList.remove("is-pressed");
+  }
 
-let navigating=false
+  function goWithBounce(e) {
+    e.preventDefault();
+    if (navigating) return;
+    navigating = true;
 
-function goWithBounce(e){
+    clearPressed();
 
-e.preventDefault()
+    logo.classList.remove("release");
+    void logo.offsetWidth;
+    logo.classList.add("release");
 
-if(navigating)return
-navigating=true
+    setTimeout(() => {
+      window.location.href = link.href;
+    }, 220);
+  }
 
-logo.classList.remove("release")
-void logo.offsetWidth
-logo.classList.add("release")
+  logo.addEventListener("pointerdown", () => {
+    logo.classList.add("is-pressed");
+  });
 
-setTimeout(()=>{
-window.location.href=link.href
-},220)
+  logo.addEventListener("pointerup", clearPressed);
+  logo.addEventListener("pointercancel", clearPressed);
+  logo.addEventListener("pointerleave", clearPressed);
 
-}
+  logo.addEventListener("click", goWithBounce);
 
-logo.addEventListener("pointerdown",()=>{
-logo.classList.add("is-pressed")
-})
+  const counter = new Counter({
+    version: "v1",
+    namespace: "0den-neocities",
+    timeout: 8000,
+    debug: true
+  });
 
-logo.addEventListener("pointerup",()=>{
-logo.classList.remove("is-pressed")
-})
-
-logo.addEventListener("pointercancel",()=>{
-logo.classList.remove("is-pressed")
-})
-
-logo.addEventListener("click",goWithBounce)
-
-/* counter */
-
-const el=document.getElementById("count")
-
-const counter=new Counter({
-version:"v1",
-namespace:"0den-neocities",
-timeout:8000,
-debug:true
-})
-
-counter.up("visits")
-.then(result=>{
-
-const value=result?.value??result?.count
-
-if(value===undefined||value===null){
-el.textContent="Error"
-return
-}
-
-el.textContent=String(value).padStart(6,"0")
-
-})
-.catch(()=>{
-el.textContent="Error"
-})
-
-})
-
+  counter.up("visits")
+    .then(result => {
+      const value = result?.value ?? result?.count;
+      if (value == null) {
+        el.textContent = "Error";
+        return;
+      }
+      el.textContent = String(value).padStart(6, "0");
+    })
+    .catch(() => {
+      el.textContent = "Error";
+    });
+});
 </script>
+
+</body>
+</html>
 
 </body>
 </html>
